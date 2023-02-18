@@ -14,6 +14,7 @@ function previewFile() {
   
 }
 function upload(){
+  alert("開始執行上傳...")
   var result=document.getElementById("result");
   var res=document.getElementById("res");
   var btn=document.getElementById("btn");
