@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMG.CLOUD</title>
+    <script src="js/index.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" href="images/cloud-svgrepo-com.svg">
+</head>
+<body>
+    <div id="box" class="box">
+        <div class="content">
+            <h1 class="title">Front-End Images Cloud</h1>
+            <p class="subTitle">upload your images and get workable ImgUrl</p>
+            <div class="main">
+                <div class="upload">
+                    <input class="up" type="file" accept="image/*" onchange="previewFile()" /><br />
+                    <div class="preview">
+                        <img src="" height="200" alt="Image preview" />
+                    </div>
+                    <button id='btn' class="btn" onclick="upload()">確認上傳</button>
+                    <div class="result" id="result">
+                        轉換連結： <span id="res"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
