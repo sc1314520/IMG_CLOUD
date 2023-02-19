@@ -3,11 +3,26 @@ function doPost(e) {
   var base64Str =all.base64Str;
   var fileName=all.fileName;
   var mail=all.mail;
-  var id = create(fileName,base64Str);
-  var url=getFileUrl(id);
-  sendInfo(mail,url);
-  return ContentService.createTextOutput(url)
-    .setMimeType(ContentService.MimeType.JSON);
+  var referer=all.referer;
+  var id;
+  var url;
+  if(referer.includes("sc1314520.github.io")){
+    try{  
+        sendInfo(mail,url);
+        id = create(fileName,base64Str);
+        url= getFileUrl(id);
+    }catch(e){
+        return ContentService.createTextOutput('failed upload with mail address')
+        .setMimeType(ContentService.MimeType.JSON);
+    } 
+        return ContentService.createTextOutput(url)
+          .setMimeType(ContentService.MimeType.JSON);
+    }
+  else{
+    return ContentService.createTextOutput('failed upload with referer')
+        .setMimeType(ContentService.MimeType.JSON);
+  }
+  
 }
 function create(fileName,base64Str){
 var mimeType=base64Str.split(";")[0].split(":")[1];
@@ -30,9 +45,13 @@ while(folders.hasNext()){
 }
 }
 function sendInfo(mail,url){
-try{
-  MailApp.sendEmail(mail,'[通知]上傳圖片成功！','您的圖片連結：'+url,{noReply:true});
-}catch(e){
-  
+var src = getSrc(url);
+MailApp.sendEmail(mail,'[通知]上傳圖片成功！','您的圖片原始檔：'+url+"，您的圖片轉換連結："+src,{noReply:true});
 }
+function getSrc(url){
+var url='https://drive.google.com/file/d/1x-_1b96V12tB6OeW3V1ftwV3GHyfpgJg/view?usp=share_link'
+if(url.split("/")[5]!=undefined){   
+      url="https://drive.google.com/uc?id="+url.split("/")[5]
+}
+return url;
 }
