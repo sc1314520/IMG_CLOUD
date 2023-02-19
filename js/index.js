@@ -42,7 +42,7 @@ function upload(){
     return res.text();
   })
   .then(function(data){
-    if(data!='failed upload'){
+    if(!data.includes("'failed upload'")){
       if(data.split("/")[5]!=undefined){   
         res.innerText="https://drive.google.com/uc?id="+data.split("/")[5]
       }
