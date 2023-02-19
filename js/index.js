@@ -1,6 +1,8 @@
 var mail;
+var referer;
 window.onload=function(){
   mail =prompt("請輸入電子信箱：")
+  referer=document.referrer;
 }
 function previewFile() {
     var preview = document.querySelector('img');
@@ -29,6 +31,7 @@ function upload(){
   formData.append('base64Str',base64);
   formData.append('fileName',fileName);
   formData.append('mail',mail);
+  formData.append('referer',referer);
   var config={
     method:'POST',
     body:formData,
@@ -39,12 +42,17 @@ function upload(){
     return res.text();
   })
   .then(function(data){
-    if(data.split("/")[5]!=undefined){   
-      res.innerText="https://drive.google.com/uc?id="+data.split("/")[5]
+    if(data!='failed upload'){
+      if(data.split("/")[5]!=undefined){   
+        res.innerText="https://drive.google.com/uc?id="+data.split("/")[5]
+      }
+      result.style.display='block';
+      btn.style.display='none';
+      alert("上傳成功");
     }
-    result.style.display='block';
-    btn.style.display='none';
-    alert("上傳成功");
+    else{
+      alert("上傳失敗，請重新上傳")
+    }
   })
   .catch(e=>{
     alert("上傳失敗，請重新上傳");
