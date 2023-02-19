@@ -1,4 +1,4 @@
-var mail;
+let mail;
 window.onload=function(){
   mail =prompt("請輸入電子信箱：")
 }
