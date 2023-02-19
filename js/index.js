@@ -2,7 +2,6 @@ var mail;
 var referer=window.location.href;
 window.onload=function(){
   mail =prompt("請輸入電子信箱：")
-  console.log(referer);
 }
 function previewFile() {
     var preview = document.querySelector('img');
@@ -42,7 +41,6 @@ function upload(){
     return res.text();
   })
   .then(function(data){
-    console.log(data)
     if(!data.includes("'failed upload'")){
       if(data.split("/")[5]!=undefined){   
         res.innerText="https://drive.google.com/uc?id="+data.split("/")[5]
