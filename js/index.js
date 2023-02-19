@@ -44,6 +44,7 @@ function upload(){
   .then(function(data){
     console.log(data)
     if(!data.includes("failed upload")){
+      console.log("成功")
       if(data.split("/")[5]!=undefined){   
         res.innerText="https://drive.google.com/uc?id="+data.split("/")[5]
       }
@@ -54,6 +55,7 @@ function upload(){
     }
   })
   .catch(e=>{
+    console.log(e)
     state.innerHTML="<div class='result'><div class='msg'><img src='images/icons8-cancel-500.png'></div><br/><div class='error'>上傳失敗，請重新上傳</div>";
   })
 }
