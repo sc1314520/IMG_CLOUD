@@ -1,7 +1,4 @@
-let mail;
-window.onload=function(){
-  mail =prompt("請輸入電子信箱：")
-}
+const mail=prompt("請輸入電子信箱："); 
 function previewFile() {
     var state=document.getElementById("state");
     state.innerHTML='<img src="" height="200" alt="Image preview" />';
