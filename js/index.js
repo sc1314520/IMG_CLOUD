@@ -1,5 +1,8 @@
 const mail=prompt("請輸入電子信箱："); 
 function previewFile() {
+    var btn=document.getElementById("btn");
+    btn.disabled=false;
+    btn.innerText='確認上傳';
     var state=document.getElementById("state");
     state.innerHTML='<img src="" height="200" alt="Image preview" />';
     var preview = document.querySelector('img');
@@ -43,13 +46,15 @@ function upload(){
     if(!data.includes("failed upload")){
       console.log("成功")
       state.innerHTML="<div class='result'><div class='msg'><img src='images/icons8-ok-500.png'></div><br/><div class='retext'>上傳成功，請查收郵件</div>";
+      btn.disabled = true;
+      btn.innerText= '請重新選擇新圖片';
     }
     else{
-      state.innerHTML="<div class='result'><div class='msg'><img src='images/icons8-cancel-500.png'></div><br/><div class='retext'>上傳失敗，請重新上傳</div>";
+      state.innerHTML="<div class='result'><div class='msg'><img src='images/icons8-cancel-500.png'></div><br/><div class='retext'>上傳失敗，請重新選擇上傳</div>";
     }
   })
   .catch(e=>{
     console.log(e)
-    state.innerHTML="<div class='result'><div class='msg'><img src='images/icons8-cancel-500.png'></div><br/><div class='retext'>上傳失敗，請重新上傳</div>";
+    state.innerHTML="<div class='result'><div class='msg'><img src='images/icons8-cancel-500.png'></div><br/><div class='retext'>上傳失敗，請重新選擇上傳</div>";
   })
 }
