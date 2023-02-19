@@ -1,5 +1,5 @@
 var mail;
-var referer=document.referrer;
+var referer=window.location.href;
 window.onload=function(){
   mail =prompt("請輸入電子信箱：")
   console.log(referer);
