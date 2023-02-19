@@ -1,8 +1,8 @@
 var mail;
-var referer;
+var referer=document.referrer;
 window.onload=function(){
   mail =prompt("請輸入電子信箱：")
-  referer=document.referrer;
+  console.log(referer);
 }
 function previewFile() {
     var preview = document.querySelector('img');
