@@ -12,6 +12,7 @@ function doPost(e) {
         url= getFileUrl(id);
         sendInfo(mail,url);
     }catch(e){
+        rollback(id);
         return ContentService.createTextOutput('failed upload with mail address')
         .setMimeType(ContentService.MimeType.JSON);
     } 
@@ -53,4 +54,8 @@ if(url.split("/")[5]!=undefined){
       url="https://drive.google.com/uc?id="+url.split("/")[5]
 }
 return url;
+}
+function rollback(id){
+var file =DriveApp.getFileById(id);
+file.setTrashed(true);
 }
