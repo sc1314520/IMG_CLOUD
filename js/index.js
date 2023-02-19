@@ -1,6 +1,6 @@
 var mail;
 window.onload=function(){
-  //mail =prompt("請輸入電子信箱：")
+  mail =prompt("請輸入電子信箱：")
 }
 function previewFile() {
     var state=document.getElementById("state");
