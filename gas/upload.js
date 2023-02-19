@@ -30,5 +30,9 @@ while(folders.hasNext()){
 }
 }
 function sendInfo(mail,url){
-MailApp.sendEmail(mail,'[通知]上傳圖片成功！','您的圖片連結：'+url,{noReply:true});
+try{
+  MailApp.sendEmail(mail,'[通知]上傳圖片成功！','您的圖片連結：'+url,{noReply:true});
+}catch(e){
+  
+}
 }

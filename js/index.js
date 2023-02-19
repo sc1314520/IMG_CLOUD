@@ -1,4 +1,7 @@
-var mail =prompt("請輸入電子信箱：")
+var mail;
+window.onload=function(){
+  mail =prompt("請輸入電子信箱：")
+}
 function previewFile() {
     var preview = document.querySelector('img');
     var file = document.querySelector('input[type=file]').files[0];
