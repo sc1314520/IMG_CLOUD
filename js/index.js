@@ -1,3 +1,4 @@
+var mail =prompt("請輸入電子信箱：")
 function previewFile() {
     var preview = document.querySelector('img');
     var file = document.querySelector('input[type=file]').files[0];
@@ -24,6 +25,7 @@ function upload(){
   var formData =new FormData();
   formData.append('base64Str',base64);
   formData.append('fileName',fileName);
+  formData.append('mail',mail);
   var config={
     method:'POST',
     body:formData,
