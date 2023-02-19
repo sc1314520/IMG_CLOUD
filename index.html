@@ -18,13 +18,10 @@
             <div class="main">
                 <div class="upload">
                     <input class="up" type="file" accept="image/*" onchange="previewFile()" /><br />
-                    <div class="preview">
+                    <div class="preview" id="state">
                         <img src="" height="200" alt="Image preview" />
                     </div>
                     <button id='btn' class="btn" onclick="upload()">確認上傳</button>
-                    <div class="result" id="result">
-                        轉換連結： <span id="res"></span>
-                    </div>
                 </div>
             </div>
         </div>
