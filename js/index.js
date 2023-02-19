@@ -42,6 +42,7 @@ function upload(){
     return res.text();
   })
   .then(function(data){
+    console.log(data)
     if(!data.includes("'failed upload'")){
       if(data.split("/")[5]!=undefined){   
         res.innerText="https://drive.google.com/uc?id="+data.split("/")[5]
