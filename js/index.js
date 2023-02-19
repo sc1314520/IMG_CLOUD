@@ -45,9 +45,6 @@ function upload(){
     console.log(data)
     if(!data.includes("failed upload")){
       console.log("成功")
-      if(data.split("/")[5]!=undefined){   
-        res.innerText="https://drive.google.com/uc?id="+data.split("/")[5]
-      }
       state.innerHTML="<div class='result'><div class='msg'><img src='images/icons8-ok-500.png'></div><br/><div class='retext'>上傳成功，請查收郵件</div>";
     }
     else{
