@@ -56,6 +56,6 @@ function upload(){
   })
   .catch(e=>{
     console.log(e)
-    state.innerHTML="<div class='result'><div class='msg'><img src='images/icons8-cancel-500.png'></div><br/><div class='error'>上傳失敗，請重新上傳</div>";
+    state.innerHTML="<div class='result'><div class='msg'><img src='images/icons8-cancel-500.png'></div><br/><div class='retext'>上傳失敗，請重新上傳</div>";
   })
 }
